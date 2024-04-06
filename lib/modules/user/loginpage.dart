@@ -87,7 +87,7 @@ class New extends StatelessWidget {
                     padding: EdgeInsets.only(left: 40, right: 40),
                     child: Center(
                       child: Text(
-                        '____________or login with_________',
+                        'or login with',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inder(),
                       ),

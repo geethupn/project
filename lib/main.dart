@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/admin/admin1.dart';
+import 'package:flutter_application_1/modules/admin/admin2.dart';
 import 'package:flutter_application_1/modules/user/alert.dart';
 import 'package:flutter_application_1/modules/user/applanguage.dart';
 import 'package:flutter_application_1/modules/user/changepas.dart';
 import 'package:flutter_application_1/modules/user/contaccts.dart';
+import 'package:flutter_application_1/modules/user/forgot.dart';
 import 'package:flutter_application_1/modules/user/home1.dart';
 import 'package:flutter_application_1/modules/user/home2.dart';
 import 'package:flutter_application_1/modules/user/home3.dart';
@@ -12,6 +15,7 @@ import 'package:flutter_application_1/modules/user/loginpage.dart';
 import 'package:flutter_application_1/modules/user/phone.dart';
 import 'package:flutter_application_1/modules/user/recent.dart';
 import 'package:flutter_application_1/modules/user/register.dart';
+import 'package:flutter_application_1/modules/user/resetpass.dart';
 import 'package:flutter_application_1/modules/user/verification.dart';
 import 'package:flutter_application_1/modules/user/yo.dart';
 
@@ -50,13 +54,15 @@ class MyApp extends StatelessWidget {
       ),
       //home:Forgot(),
       // home:RegistrationForm(),
+     // home: ImageTextFieldPage(),
+     home: Admin(),
      // home: Reset(),
-  //  home: Verific(),
+    //home: Verific(),
   // home: Home1(),
    // home: user(),
    //home: Home_page(),
   // home: HomePage(),
-// home: New(),
+ //home: New(),
   //home: Home(),
  // home: Password(),
 //home: App(),
@@ -67,7 +73,9 @@ class MyApp extends StatelessWidget {
 //home: MyAlertDialog(),
 //home: Recent(),
 //home: MyHomePage(),
-home: Alert(),
+//home: Alert(),
+//home:LoginPage() ,
+//home: MyApp(),
 //home: MyApp(),
 //home: YouTubeDemo(),
 //home: YouTubePlayPage(),
