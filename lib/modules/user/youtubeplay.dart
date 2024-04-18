@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(YouTubePlayPage());
+  runApp(Youtubeplay());
 }
 
-class YouTubePlayPage extends StatelessWidget {
+class Youtubeplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

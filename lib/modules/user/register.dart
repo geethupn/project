@@ -1,15 +1,25 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-class RegistrationForm extends StatefulWidget {
-  const RegistrationForm({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<RegistrationForm> createState() => _RegistrationFormState();
+  State<Register> createState() => _RegistrationFormState();
 }
 
-class _RegistrationFormState extends State<RegistrationForm> {
+class _RegistrationFormState extends State<Register> {
+  TextEditingController username=TextEditingController();
+  TextEditingController email=TextEditingController();
+  TextEditingController age=TextEditingController();
+  TextEditingController phonenumber=TextEditingController();
+  TextEditingController password=TextEditingController();
+  TextEditingController confirmpass=TextEditingController();
+  Controlprovider obj1=Controlprovider();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,84 +34,86 @@ class _RegistrationFormState extends State<RegistrationForm> {
             child: SingleChildScrollView(
               child: Center(
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.only(top: 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        children: [
+                      TextField(
+                        controller: username,
+                        decoration: InputDecoration(
+                          
+                          labelText: "Username",
+                          labelStyle:GoogleFonts.inder(), 
                         
-                          SizedBox(height: 6),
-                          Text(
-                            'Username',
-                            style: GoogleFonts.inder(color: Colors.black),
-                          ),
-                        ],
-                      ),
-                      TextField(),
-                      SizedBox(height: 15),
-                      Row(
-                        children: [
+                        ),
                         
-                          SizedBox(width: 10),
-                          Text(
-                            'Email',
-                            style: GoogleFonts.inder(color: Colors.black),
-                          ),
-                        ],
                       ),
-                      TextField(),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
+                      SizedBox(height: 10,),
+                        TextField(
+                          controller: email,
+                        decoration: InputDecoration(
+                          
+                          labelText: "Email",
+                          labelStyle: GoogleFonts.inder(),
                         
-                          SizedBox(width: 10),
-                          Text(
-                            'Age',
-                            style: GoogleFonts.inder(color: Colors.black),
-                          ),
-                        ],
-                      ),
-                      TextField(),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
+                        ),
                         
-                          SizedBox(width: 10),
-                          Text(
-                            'Phone Number',
-                            style: GoogleFonts.inder(color: Colors.black),
-                          ),
-                        ],
                       ),
-                      TextField(),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
+                      SizedBox(height: 10,),
+                      TextField(
+                        controller: age,
+                        decoration: InputDecoration(
+                          
+                          labelText: "Age",
+                          labelStyle: GoogleFonts.inder(),
                         
-                          SizedBox(width: 10),
-                          Text(
-                            'Password',
-                            style: GoogleFonts.inder(color: Colors.black),
-                          ),
-                        ],
+                        
+                        ),
+                        
                       ),
-                      TextField(obscureText: true),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                         
-                          SizedBox(width: 10),
-                          Text(
-                            'Confirm Password',
-                            style: GoogleFonts.inder(color: Colors.black),
-                          ),
-                        ],
+                      SizedBox(height: 10,),
+                        TextField(
+                          controller: phonenumber,
+                        decoration: InputDecoration(
+                          
+                          labelText: "Phone Number",
+                          labelStyle: GoogleFonts.inder(),
+                        
+                        
+                        ),
+                        
                       ),
-                      TextField(obscureText: true),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10,),
+                      TextField(
+                        controller: password,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          
+                          labelText: "Password",
+                          labelStyle: GoogleFonts.inder(),
+                        
+                        
+                        ),
+                        
+                      ),
+                      SizedBox(height: 10,),
+                        TextField(
+                          controller: confirmpass,
+                          obscureText: true,
+                        decoration: InputDecoration(
+                          
+                          labelText: "Confirm Password",
+                          labelStyle: GoogleFonts.inder(),
+                        
+                        
+                        ),
+                        
+                      ),
+                      SizedBox(height: 40),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          obj1.CreateAccount(emailAddress: email.text, password: password.text,context: context);
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black,
                           shape: RoundedRectangleBorder(
@@ -119,12 +131,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ),
             ),
           ),
-          Positioned(
-            top: 10,
-            right: 20,
-            child: Icon(Icons.menu, color: Colors.black),
-          ),
-         // SizedBox(height: 10),
         ],
       ),
 

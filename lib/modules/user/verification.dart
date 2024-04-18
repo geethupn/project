@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/user/ChangePassword.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Verific extends StatefulWidget {
-  const Verific({super.key});
+class Verification extends StatefulWidget {
+  const Verification({super.key});
 
   @override
-  State<Verific> createState() => _ForgotState();
+  State<Verification> createState() => _ForgotState();
 }
 
-class _ForgotState extends State<Verific> {
+class _ForgotState extends State<Verification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +85,9 @@ class _ForgotState extends State<Verific> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>ChangePassword()));
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(

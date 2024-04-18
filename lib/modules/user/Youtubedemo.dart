@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/user/Home.dart';
 
 void main() {
-  runApp(YouTubeDemo());
+  runApp(Youtubedemo());
 }
 
-class YouTubeDemo extends StatelessWidget {
+class Youtubedemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,7 +16,15 @@ class YouTubeDemo extends StatelessWidget {
         appBar: AppBar(
           title: Row(
             children: [
-              Icon(Icons.arrow_back,color: Colors.black),
+              IconButton(
+                icon:  Icon(Icons.arrow_back,color: Colors.black),
+                 onPressed: (){
+                  Navigator.push(context,MaterialPageRoute(builder:(context) => Home()),);
+
+                 },
+
+              ),
+             
               SizedBox(width: 8),
               Text('YouTube'),
             ],

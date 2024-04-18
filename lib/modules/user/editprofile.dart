@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/modules/user/Homee3.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Home_page extends StatelessWidget {
-  const Home_page({super.key});
+class EditProfile extends StatelessWidget {
+  const EditProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +46,7 @@ class Home_page extends StatelessWidget {
                 //children: [
                   ElevatedButton(
                     onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Homee3()));
                   
                     },
                     style: ElevatedButton.styleFrom(

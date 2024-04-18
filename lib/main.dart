@@ -1,26 +1,39 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/modules/admin/admin1.dart';
-import 'package:flutter_application_1/modules/admin/admin2.dart';
-import 'package:flutter_application_1/modules/user/alert.dart';
-import 'package:flutter_application_1/modules/user/applanguage.dart';
-import 'package:flutter_application_1/modules/user/changepas.dart';
-import 'package:flutter_application_1/modules/user/contaccts.dart';
-import 'package:flutter_application_1/modules/user/forgot.dart';
-import 'package:flutter_application_1/modules/user/home1.dart';
-import 'package:flutter_application_1/modules/user/home2.dart';
-import 'package:flutter_application_1/modules/user/home3.dart';
-import 'package:flutter_application_1/modules/user/editprofile.dart';
+import 'package:flutter_application_1/firebase_options.dart';
+import 'package:flutter_application_1/modules/admin/Admin1.dart';
+import 'package:flutter_application_1/modules/admin/Admin2.dart';
+import 'package:flutter_application_1/modules/admin/Admin3.dart';
+import 'package:flutter_application_1/modules/user/Alert.dart';
+import 'package:flutter_application_1/modules/user/AppLanguage.dart';
+import 'package:flutter_application_1/modules/user/Button.dart';
+import 'package:flutter_application_1/modules/user/ChangePassword.dart';
+import 'package:flutter_application_1/modules/user/Contacts.dart';
+import 'package:flutter_application_1/modules/user/Homee2..dart';
+import 'package:flutter_application_1/modules/user/createaccount.dart';
+import 'package:flutter_application_1/modules/user/Forgot.dart';
+import 'package:flutter_application_1/modules/user/Home.dart';
+import 'package:flutter_application_1/modules/user/Homee1.dart';
+//import 'package:flutter_application_1/modules/user/home2.dart';
+import 'package:flutter_application_1/modules/user/Homee3.dart';
+import 'package:flutter_application_1/modules/user/EditProfile.dart';
 
-import 'package:flutter_application_1/modules/user/loginpage.dart';
+import 'package:flutter_application_1/modules/user/LoginPage.dart';
+import 'package:flutter_application_1/modules/user/Location.dart';
 import 'package:flutter_application_1/modules/user/phone.dart';
-import 'package:flutter_application_1/modules/user/recent.dart';
-import 'package:flutter_application_1/modules/user/register.dart';
-import 'package:flutter_application_1/modules/user/resetpass.dart';
-import 'package:flutter_application_1/modules/user/verification.dart';
-import 'package:flutter_application_1/modules/user/yo.dart';
+import 'package:flutter_application_1/modules/user/Recent.dart';
+import 'package:flutter_application_1/modules/user/Register.dart';
+import 'package:flutter_application_1/modules/user/Reset.dart';
+import 'package:flutter_application_1/modules/user/Verification.dart';
+import 'package:flutter_application_1/modules/user/Youtubedemo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/modules/user/Youtubeplay.dart';
 
-
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(const MyApp());
 }
 
@@ -52,34 +65,23 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      //home:Forgot(),
-      // home:RegistrationForm(),
-     // home: ImageTextFieldPage(),
-     home: Admin(),
-     // home: Reset(),
-    //home: Verific(),
-  // home: Home1(),
-   // home: user(),
-   //home: Home_page(),
-  // home: HomePage(),
- //home: New(),
-  //home: Home(),
- // home: Password(),
-//home: App(),
-//home: App(),
-//home: Contact(),
-//home: ContactsPage(),
-//home: Phone(),
-//home: MyAlertDialog(),
-//home: Recent(),
-//home: MyHomePage(),
-//home: Alert(),
-//home:LoginPage() ,
-//home: MyApp(),
-//home: MyApp(),
-//home: YouTubeDemo(),
-//home: YouTubePlayPage(),
-//home: Alert(),
+     // home: Home(),
+    // home: Button(),
+    //home: Admin1(),
+    home:Admin3(),
+    //home:Admin2(),
+   // home: Homee2(),
+   //home: Alert(),
+   //home: Contacts(),
+  // home: Phone(),
+    // home: Admin3(),
+    //home: Register(),
+   // home: LoginPage(),
+   //home: Forgot(),
+   //home: Verification(),
+   //home: Homee3(),
+ // home: Youtubedemo(),
+  
     );
   }
 }

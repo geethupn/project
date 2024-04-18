@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/user/Home.dart';
+import 'package:flutter_application_1/modules/user/phone.dart';
 
 class Contact {
   final String name;
@@ -43,12 +45,12 @@ class ContactItemWidget extends StatelessWidget {
   }
 }
 
-class ContactsPage extends StatefulWidget {
+class Contacts extends StatefulWidget {
   @override
   _ContactsPageState createState() => _ContactsPageState();
 }
 
-class _ContactsPageState extends State<ContactsPage> {
+class _ContactsPageState extends State<Contacts> {
   List<Contact> contacts = [
     Contact(name: 'Appu', phoneNumber: '123'),
     Contact(name: 'Sachin', phoneNumber: '456'),
@@ -70,6 +72,8 @@ class _ContactsPageState extends State<ContactsPage> {
         leading: IconButton(
           icon: Icon(Icons.menu, color: Colors.white),
           onPressed: () {
+             Navigator.push(context,MaterialPageRoute(builder:(context) => Home()),);
+            
             // Add functionality for menu button
           },
         ),
@@ -77,6 +81,8 @@ class _ContactsPageState extends State<ContactsPage> {
           IconButton(
             icon: Icon(Icons.add, color: Colors.white),
             onPressed: () {
+               Navigator.push(context,MaterialPageRoute(builder:(context) => Phone()),);
+
               // Add functionality for add button
             },
           ),

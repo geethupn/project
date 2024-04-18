@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Home1 extends StatefulWidget {
-  const Home1({super.key});
+class Homee1 extends StatefulWidget {
+  const Homee1({super.key});
 
   @override
-  State<Home1> createState() => _MyWidgetState();
+  State<Homee1> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<Home1> {
+class _MyWidgetState extends State<Homee1> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

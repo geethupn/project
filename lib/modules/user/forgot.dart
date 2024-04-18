@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/user/verification.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Forgot extends StatefulWidget {
@@ -51,6 +52,7 @@ class _ForgotState extends State<Forgot> {
             SizedBox(height:20),
             ElevatedButton(
               onPressed: () {
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>Verification()));
 
               },
               style: ElevatedButton.styleFrom(

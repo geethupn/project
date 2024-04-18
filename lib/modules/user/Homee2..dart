@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/user/Home.dart';
+import 'package:flutter_application_1/modules/user/Homee1.dart';
+import 'package:flutter_application_1/modules/user/Homee3.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class user extends StatefulWidget {
-  const user({super.key});
+class Homee2 extends StatefulWidget {
+  const Homee2({super.key});
 
   @override
-  State<user> createState() => _userState();
+  State<Homee2> createState() => _userState();
 }
 
-class _userState extends State<user> {
+class _userState extends State<Homee2> {
   bool carChecked=false;
   bool bikeChecked=false;
   bool trainChecked=false;
@@ -21,19 +24,7 @@ class _userState extends State<user> {
       body: SafeArea(
         child: Column(
           children: [
-            // Header (replace with your app name/logo)
-            /*Padding(
-              padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-              child: Text(
-                'Your App Name',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),*/
-            // Body section
+            
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -42,12 +33,12 @@ class _userState extends State<user> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Column(
+                  child:Column(
                     children: [
                     
                       // Car, Bike, Train icons
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Checkbox(
                             value: carChecked,
@@ -59,7 +50,7 @@ class _userState extends State<user> {
                           ),
                           
                           
-                          Icon(Icons.directions_car, size: 30.0),
+                          Icon(Icons.directions_car, size: 20.0),
                           Checkbox(
                             value: bikeChecked,
                             onChanged: (bool? value){
@@ -68,7 +59,7 @@ class _userState extends State<user> {
                               });
                             },
                           ),
-                          Icon(Icons.directions_bike, size: 30.0),
+                          Icon(Icons.directions_bike, size: 20.0),
                           Checkbox(
                             value: trainChecked,
                             onChanged: (bool? value){
@@ -78,7 +69,7 @@ class _userState extends State<user> {
                             },
                           ),
 
-                          Icon(Icons.directions_train, size: 30.0),
+                          Icon(Icons.directions_train, size: 20.0),
                           Checkbox(
                             value: settingsChecked,
                             onChanged: (bool? value){
@@ -87,7 +78,16 @@ class _userState extends State<user> {
                               });
                             },
                           ),
-                          Icon(Icons.settings,size: 30.0),
+                          TextButton(
+                            onPressed: (){
+                               Navigator.push(context,MaterialPageRoute(builder:(context) => Homee3()),);
+
+                            },
+                            child:Icon(Icons.settings,size: 15.0) ,
+                          ),
+                          
+                          
+                          
                         ],
                       ),
                       SizedBox(height: 20.0),
@@ -124,7 +124,9 @@ class _userState extends State<user> {
                       SizedBox(height: 20.0),
                       // Ok button
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,MaterialPageRoute(builder:(context) => Home()),);
+                        },
                         
                         child: Text('Ok',style: GoogleFonts.inder(color:Colors.white),),
                         style: ElevatedButton.styleFrom(

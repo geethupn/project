@@ -1,25 +1,5 @@
-/*import 'package:flutter/material.dart';
 
-class Recent extends StatefulWidget {
-  const Recent({super.key});
 
-  @override
-  State<Recent> createState() => _RecentState();
-}
-
-class _RecentState extends State<Recent> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back,color: Colors.white,),
-        backgroundColor: Colors.black,
-        
-      ),
-    );
-  }
-}*/
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

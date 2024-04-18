@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/user/Contacts.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Phone extends StatefulWidget {
@@ -23,16 +24,20 @@ class _PhoneState extends State<Phone> {
             radius: 50.0,
             backgroundColor: Colors.grey,
           ),
-          //Column(
-            //children: [
+           SizedBox(width: 10),
+          
+             
               TextField(
+                
                 decoration: InputDecoration(
+                  
                   
                   labelText: 'First Name',
                   
                   labelStyle: GoogleFonts.inder(),
                 ),
               ),
+               SizedBox(width: 10),
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Last Name',
@@ -52,6 +57,7 @@ class _PhoneState extends State<Phone> {
                 //children: [
                   ElevatedButton(
                     onPressed: (){
+                       Navigator.push(context,MaterialPageRoute(builder:(context) => Contacts()),);
                   
                     },
                     style: ElevatedButton.styleFrom(
@@ -61,7 +67,7 @@ class _PhoneState extends State<Phone> {
                         ),
                       padding: EdgeInsets.all(16.0)
                     ),
-                    child: Text('Edit',style:GoogleFonts.inder(color:Colors.black),),
+                    child: Text('Save',style:GoogleFonts.inder(color:Colors.black),),
                   ),
                   SizedBox(height: 20.0),
                   Row(

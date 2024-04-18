@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/user/Homee3.dart';
+import 'package:flutter_application_1/modules/user/LoginPage.dart';
 
-class Password extends StatefulWidget {
-  const Password({super.key});
+class ChangePassword extends StatefulWidget {
+  const ChangePassword({super.key});
 
   @override
-  State<Password> createState() => _PasswordState();
+  State<ChangePassword> createState() => _PasswordState();
 }
 
-class _PasswordState extends State<Password> {
+class _PasswordState extends State<ChangePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +29,8 @@ class _PasswordState extends State<Password> {
             ) ,
             
                 ),
-                 SizedBox(width: 10),
-                 Icon(Icons.verified,size: 16.0,color: Colors.white),
+                // SizedBox(width: 10),
+                // Icon(Icons.verified,size: 16.0,color: Colors.white),
             
 
                
@@ -52,8 +54,8 @@ class _PasswordState extends State<Password> {
                 ),
                 
                 ),
-                 SizedBox(width: 10),
-             Icon(Icons.verified,size: 16.0,color: Colors.white),
+                // SizedBox(width: 10),
+             //Icon(Icons.verified,size: 16.0,color: Colors.white),
 
               ],
             ),
@@ -69,14 +71,15 @@ class _PasswordState extends State<Password> {
                 ),
                 
                 ),
-                SizedBox(width: 10),
-             Icon(Icons.verified,size: 16.0,color: Colors.white),
+               // SizedBox(width: 10),
+            // Icon(Icons.verified,size: 16.0,color: Colors.white),
 
               ],
             ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
 
               },
               child: Text('change password'),
