@@ -2,8 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/modules/user/Home.dart';
-import 'package:flutter_application_1/modules/user/LoginPage.dart';
-import 'package:flutter_application_1/modules/user/Register.dart';
+import 'package:flutter_application_1/modules/auth_screens/LoginPage.dart';
 //import 'package:flutter_application_1/modules/user/Register.dart';
 //import 'package:flutter_application_1/modules/user/loginpage.dart';
 

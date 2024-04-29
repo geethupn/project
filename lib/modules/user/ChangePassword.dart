@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/user/Homee3.dart';
-import 'package:flutter_application_1/modules/user/LoginPage.dart';
+import 'package:flutter_application_1/modules/auth_screens/LoginPage.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
@@ -79,7 +79,7 @@ class _PasswordState extends State<ChangePassword> {
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Homee3()));
 
               },
               child: Text('change password'),

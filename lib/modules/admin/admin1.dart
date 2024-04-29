@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/admin/Admin2.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Admin1 extends StatelessWidget {
@@ -51,7 +52,9 @@ class Admin1 extends StatelessWidget {
                   SizedBox(height: 20),
                   Center(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                         Navigator.push(context,MaterialPageRoute(builder:(context) => Admin2()),);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(

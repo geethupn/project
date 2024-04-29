@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/auth_screens/Reset.dart';
 import 'package:flutter_application_1/modules/user/ChangePassword.dart';
+//import 'package:flutter_application_1/modules/user/Reset.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Verification extends StatefulWidget {
@@ -86,7 +88,7 @@ class _ForgotState extends State<Verification> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                     Navigator.push(context, MaterialPageRoute(builder: (context)=>ChangePassword()));
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Reset()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,

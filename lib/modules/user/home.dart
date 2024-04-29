@@ -4,6 +4,8 @@ import 'package:flutter_application_1/modules/user/Homee2..dart';
 //import 'package:flutter_application_1/modules/user/home2.dart';
 import 'package:flutter_application_1/modules/user/Location.dart';
 import 'package:flutter_application_1/modules/user/Youtubedemo.dart';
+import 'package:flutter_application_1/modules/user/journey.dart';
+import 'package:google_fonts/google_fonts.dart';
 //import 'package:flutter_application_1/modules/user/yo.dart';
 
 class Home extends StatefulWidget {
@@ -32,7 +34,7 @@ class _HomeState extends State<Home> {
                   case 'journey details':
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Homee2()),
+                      MaterialPageRoute(builder: (context) => JourneyPage()),
                     );
                     break;
                   case 'location track':
@@ -68,6 +70,7 @@ class _HomeState extends State<Home> {
       ),
      // backgroundColor: Colors.black,
       body: Container(
+        
       
         width: double.infinity,
          height: MediaQuery.of(context).size.height,
@@ -76,12 +79,18 @@ class _HomeState extends State<Home> {
             fit: BoxFit.cover,
             image: AssetImage("assets/image.png",
             ),
-           // colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.6),BlendMode.dstATop),
+            
+          
             ),
-            //fit: BoxFit.fill,
+            
+           
           ),
+          child: Center(child: Text('welcome to safeshield',style:GoogleFonts.jacquesFrancoisShadow(fontSize:35,color:Colors.white),)),
+          
+          
          
       ),
+      
 
     );
   }

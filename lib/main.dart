@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/firebase_options.dart';
+import 'package:flutter_application_1/business_logic/firebase_options.dart';
 import 'package:flutter_application_1/modules/admin/Admin1.dart';
 import 'package:flutter_application_1/modules/admin/Admin2.dart';
 import 'package:flutter_application_1/modules/admin/Admin3.dart';
@@ -11,25 +11,26 @@ import 'package:flutter_application_1/modules/user/ChangePassword.dart';
 import 'package:flutter_application_1/modules/user/Contacts.dart';
 import 'package:flutter_application_1/modules/user/Homee2..dart';
 import 'package:flutter_application_1/modules/user/createaccount.dart';
-import 'package:flutter_application_1/modules/user/Forgot.dart';
+//import 'package:flutter_application_1/modules/user/Forgot.dart';
 import 'package:flutter_application_1/modules/user/Home.dart';
 import 'package:flutter_application_1/modules/user/Homee1.dart';
 //import 'package:flutter_application_1/modules/user/home2.dart';
 import 'package:flutter_application_1/modules/user/Homee3.dart';
 import 'package:flutter_application_1/modules/user/EditProfile.dart';
 
-import 'package:flutter_application_1/modules/user/LoginPage.dart';
+import 'package:flutter_application_1/modules/auth_screens/LoginPage.dart';
 import 'package:flutter_application_1/modules/user/Location.dart';
+import 'package:flutter_application_1/modules/user/journey.dart';
 import 'package:flutter_application_1/modules/user/phone.dart';
 import 'package:flutter_application_1/modules/user/Recent.dart';
-import 'package:flutter_application_1/modules/user/Register.dart';
-import 'package:flutter_application_1/modules/user/Reset.dart';
-import 'package:flutter_application_1/modules/user/Verification.dart';
+import 'package:flutter_application_1/modules/auth_screens/Register.dart';
+import 'package:flutter_application_1/modules/auth_screens/Reset.dart';
+import 'package:flutter_application_1/modules/auth_screens/Verification.dart';
 import 'package:flutter_application_1/modules/user/Youtubedemo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/modules/user/Youtubeplay.dart';
 
-void main() async{
+Future <void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -65,12 +66,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-     // home: Home(),
-    // home: Button(),
-    //home: Admin1(),
-    home:Admin3(),
+    // home: Home(),
+  
+   home: Button(),
+   // home: Admin1(),
+   // home:Admin3(),
     //home:Admin2(),
-   // home: Homee2(),
+   // home: JourneyPage(),
    //home: Alert(),
    //home: Contacts(),
   // home: Phone(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/auth_screens/LoginPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Reset extends StatelessWidget {
@@ -57,7 +58,9 @@ class Reset extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,MaterialPageRoute(builder:(context) => LoginPage()),);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(

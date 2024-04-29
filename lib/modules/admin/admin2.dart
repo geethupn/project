@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/admin/Admin3.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Admin2 extends StatelessWidget {
@@ -14,6 +15,7 @@ class Admin2 extends StatelessWidget {
             icon: Icon(Icons.menu),
             color: Colors.black,
             onPressed: (){
+             
 
             },
 
@@ -64,6 +66,7 @@ class Admin2 extends StatelessWidget {
                       SizedBox(width: 20.0),
                       TextButton(
                         onPressed: (){
+                          Navigator.push(context,MaterialPageRoute(builder:(context) => Admin3()),);
 
                         },
                         child:Text(

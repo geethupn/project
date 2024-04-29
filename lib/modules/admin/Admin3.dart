@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/modules/admin/Admin2.dart';
 
 class Admin3 extends StatelessWidget {
   const Admin3({super.key});
@@ -7,24 +8,35 @@ class Admin3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('safeshield'),
+      
+    
+      body: Column(
         
-        actions: [IconButton(
+      
+        children: [
+          AppBar(
+            title: Text('SafeShield'),
+            actions: [
+               IconButton(
           icon: Icon(Icons.menu),
           
           onPressed: (){
+            Navigator.push(context,MaterialPageRoute(builder:(context) => Admin2()),);
 
           },
-        )],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          
-          
-          Text('users'),
+        ),],
+
+            
+          ),
+          Divider(
+            thickness: 2,
+            color: Colors.black,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('users'),
           SizedBox(height: 10),
           Row(
           
@@ -37,6 +49,7 @@ class Admin3 extends StatelessWidget {
                 onPressed: (){
 
                 },
+                
                 child: Text('remove'),
               ),
             ],
@@ -83,7 +96,15 @@ class Admin3 extends StatelessWidget {
       
     
         ],
-    ),
+          ),
+
+            ],
+
+          ),
+          
+          
+          
     );
+    
   }
 }
