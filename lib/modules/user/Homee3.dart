@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/user/AppLanguage.dart';
 import 'package:flutter_application_1/modules/user/ChangePassword.dart';
 import 'package:flutter_application_1/modules/user/EditProfile.dart';
-import 'package:flutter_application_1/modules/user/Homee2..dart';
+import 'package:flutter_application_1/modules/user/Home.dart';
+//import 'package:flutter_application_1/modules/user/Homee2..dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Homee3 extends StatefulWidget {
@@ -22,7 +23,7 @@ class _Home3State extends State<Homee3> {
           icon: Icon(Icons.arrow_back,
           color: Colors.black,),
           onPressed: (){
-             Navigator.push(context,MaterialPageRoute(builder:(context) => Homee2()),);
+             Navigator.push(context,MaterialPageRoute(builder:(context) => Home()),);
 
           },
         ),
