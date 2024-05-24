@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_application_1/register.dart';
 import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/modules/auth_screens/LoginPage.dart';
-import 'package:flutter_application_1/modules/auth_screens/Register.dart';
+//import 'package:flutter_application_1/modules/auth_screens/Register.dart';
+import 'package:flutter_application_1/modules/auth_screens/registerpage.dart';
+import 'package:flutter_application_1/modules/user/Home.dart';
+//import 'package:flutter_application_1/modules/user/registerr.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main()
 {
@@ -11,6 +15,18 @@ void main()
 }
 class Button extends StatelessWidget {
   const Button({super.key});
+  /*check(BuildContext context)async{
+   SharedPreferences preferences=await SharedPreferences.getInstance();
+   String? name=preferences.getString('isloggin');
+   if(name!=null)
+   {
+    Navigator.push(context,MaterialPageRoute(builder: (context)=>Home()));
+   }
+   else
+   {
+     Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginPage()));
+   }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +69,7 @@ class Button extends StatelessWidget {
                    const SizedBox(height: 20),
                    ElevatedButton(
                   onPressed:(){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Register()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>RegisterPage()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:Colors.black,

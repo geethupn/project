@@ -53,7 +53,7 @@ class _Home3State extends State<Homee3> {
                         },
                          child: ListTile(
                       
-                       title: Text('Edit Profile',style: GoogleFonts.inder(),),
+                       title: Text(' Profile',style: GoogleFonts.inder(),),
                        trailing: Icon(Icons.chevron_right),
                       ),
 

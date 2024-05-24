@@ -31,7 +31,7 @@ class Recent extends StatelessWidget {
                       Icon(Icons.person,color: Colors.white,
                       size: 100.0),
                       SizedBox(height: 10.0),
-                      Text('jhon',style: TextStyle(
+                      Text('sathi',style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -46,7 +46,7 @@ class Recent extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('12345',style: TextStyle(color: Colors.white),
+                          Text('8592825841',style: TextStyle(color: Colors.white),
                           ),
                           Row(
                             children: [
@@ -55,34 +55,7 @@ class Recent extends StatelessWidget {
                               Icon(Icons.message,size: 30.0,color: Colors.white,),
                             ],
                           ),
-                        /*  Stack(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 20),
-                                 child: Text('additional' ,style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                            ),),
-                          
-                              ),
-                              Positioned(
-                                right: 60.0,
-                                top: 0.0,
-                                child: Icon(
-                                  Icons.call,
-                                  size: 30.0,
-                                ),
-                          
-                              ),
-                              Positioned(
-                                right: 0.0,
-                                top: 0.0,
-                                child: Icon(Icons.message,
-                                size: 30),
-                              ),
-                            ],
-                           
-                          ),*/
+                       
                         ],
                       ),
                       SizedBox(height: 10.0),
@@ -95,7 +68,7 @@ class Recent extends StatelessWidget {
                           SizedBox(width: 10.0),
                           Row(
                             children: [
-                              Text('+91123',style: TextStyle(
+                              Text('8592825841',style: TextStyle(
                                 fontSize: 16.0,color: Colors.white
                               ),),
                             ],
@@ -111,7 +84,7 @@ class Recent extends StatelessWidget {
                           SizedBox(width: 10.0),
                           Row(
                             children: [
-                              Text('+91123',style: TextStyle(
+                              Text('8592825841',style: TextStyle(
                                 fontSize: 16.0,color: Colors.white
                               ),),
                             ],
