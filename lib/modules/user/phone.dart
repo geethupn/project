@@ -20,7 +20,7 @@ class _PhoneState extends State<Phone> {
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
 
-  Controller controller=Controller();
+  Controllerr controller=Controllerr();
 
 
 

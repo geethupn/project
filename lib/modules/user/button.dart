@@ -9,10 +9,10 @@ import 'package:flutter_application_1/modules/user/Home.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main()
-{
-  runApp(const MyApp());
-}
+// void main()
+// {
+//   runApp(const MyApp());
+// }
 class Button extends StatelessWidget {
   const Button({super.key});
   /*check(BuildContext context)async{
