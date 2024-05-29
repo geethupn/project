@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/modules/user/Contacts.dart';
 //import 'package:flutter_application_1/modules/user/Homee2..dart';
 //import 'package:flutter_application_1/modules/user/home2.dart';
-import 'package:flutter_application_1/modules/user/Location.dart';
 import 'package:flutter_application_1/modules/user/Youtubedemo.dart';
 import 'package:flutter_application_1/modules/user/emergency.dart';
 import 'package:flutter_application_1/modules/user/journey.dart';
+import 'package:flutter_application_1/modules/user/notification.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'package:flutter_application_1/modules/user/yo.dart';
 
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
                   case 'location track':
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Location()),
+                      MaterialPageRoute(builder: (context) => JourneyNotification()),
                     );
                     break;
                   case 'self defence':

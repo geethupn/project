@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/controller.dart';
+import 'package:flutter_application_1/model/journy_model.dart';
 //import 'package:flutter_application_1/modules/user/Home.dart';
 import 'package:flutter_application_1/modules/user/Homee3.dart';
 import 'package:flutter_application_1/modules/user/location_service/locationtrack.dart';
@@ -57,7 +62,7 @@ class _JourneyPageState extends State<JourneyPage> {
         .doc(uid)
         .set(journeyInfo);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Details added to Firestore successfully")),
+      const SnackBar(content: Text("Details added to Firestore successfully")),
     );
   }
 
@@ -74,6 +79,7 @@ class _JourneyPageState extends State<JourneyPage> {
     return null;
   }
 
+  String? sharingUid;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,7 +106,7 @@ class _JourneyPageState extends State<JourneyPage> {
                               });
                             },
                           ),
-                          Icon(Icons.directions_car, size: 20.0),
+                          const Icon(Icons.directions_car, size: 20.0),
                           Checkbox(
                             value: bikeChecked,
                             onChanged: (bool? value) {
@@ -109,7 +115,7 @@ class _JourneyPageState extends State<JourneyPage> {
                               });
                             },
                           ),
-                          Icon(Icons.directions_bike, size: 20.0),
+                          const Icon(Icons.directions_bike, size: 20.0),
                           Checkbox(
                             value: trainChecked,
                             onChanged: (bool? value) {
@@ -118,7 +124,7 @@ class _JourneyPageState extends State<JourneyPage> {
                               });
                             },
                           ),
-                          Icon(Icons.directions_train, size: 20.0),
+                          const Icon(Icons.directions_train, size: 20.0),
                           Checkbox(
                             value: settingsChecked,
                             onChanged: (bool? value) {
@@ -132,18 +138,49 @@ class _JourneyPageState extends State<JourneyPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Homee3(),
+                                  builder: (context) => const Homee3(),
                                 ),
                               );
                             },
-                            child: Icon(Icons.settings, size: 15.0),
+                            child: const Icon(Icons.settings, size: 15.0),
                           ),
                         ],
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
+                      FutureBuilder(
+                          future: Controllerr().getAllUserforDropDown(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return const Center(
+                                child: SizedBox(),
+                              );
+                            }
+                            final list = snapshot.data;
+                            return  DropdownButtonFormField(
+                                decoration:  InputDecoration(
+                                  labelText:list!.isEmpty?"Sorry No User to Connect": 'Select who want to share?',
+                                ),
+                                validator: (value) {
+                                  if (value == null) {
+                                    return 'Please select the user ';
+                                  }
+                                  return null;
+                                },
+                                items: list
+                                    .map((e) => DropdownMenuItem(
+                                          value: e,
+                                          child: Text(e!.name),
+                                        ))
+                                    .toList(),
+                                onChanged: (selected) {
+                                  sharingUid = selected!.uid;
+                                  log(sharingUid!);
+                                });
+                          }),
                       TextFormField(
                         controller: nameController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Name',
                         ),
                         validator: (value) {
@@ -153,10 +190,10 @@ class _JourneyPageState extends State<JourneyPage> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 10.0),
+                      const SizedBox(height: 10.0),
                       TextFormField(
                         controller: fromController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'From',
                         ),
                         validator: (value) {
@@ -166,10 +203,10 @@ class _JourneyPageState extends State<JourneyPage> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 10.0),
+                      const SizedBox(height: 10.0),
                       TextFormField(
                         controller: toController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'To',
                         ),
                         validator: (value) {
@@ -179,14 +216,14 @@ class _JourneyPageState extends State<JourneyPage> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 10.0),
+                      const SizedBox(height: 10.0),
                       TextFormField(
                         readOnly: true,
                         controller: timeController,
                         decoration: InputDecoration(
                           labelText: 'Time',
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.access_time),
+                            icon: const Icon(Icons.access_time),
                             onPressed: () => _selectTime(context),
                           ),
                         ),
@@ -197,51 +234,60 @@ class _JourneyPageState extends State<JourneyPage> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 10.0),
+                      const SizedBox(height: 10.0),
                       TextFormField(
                         controller: vehicleNumberController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Vehicle Number',
                         ),
                         validator: validateVehicleNumber,
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
                       Consumer<Controller>(
-                        builder: (context,buttonController,child) {
-                          return ElevatedButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
+                          builder: (context, buttonController, child) {
+                        return ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              buttonController
+                                  .get(fromController.text.trim(),
+                                      toController.text.trim())
+                                  .then((value) {
+//                               
+                                buttonController.storeCurrentJourneyInfo(
+                                    JourneyModel(
+                                        sharingUserId: sharingUid.toString(),
+                                        currentLat: 0.0,
+                                        currentLon: 0.0,
+                                        fromLat: buttonController.from!.latitude.toDouble(),
+                                        fromLon: buttonController.from!.longitude.toDouble(),
+                                        toLat: buttonController.to!.latitude.toDouble(),
+                                        toLon: buttonController.to!.longitude.toDouble())).then((value) {
+                                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PageGoogleMap()));
 
-                                buttonController.get(fromController.text.trim(),toController.text.trim()).then((value){
- Navigator.push(
-                                  context,MaterialPageRoute(builder: (context)=>PageGoogleMap()
+                                        });
                                 
-                                  ),
-                                );
-                                });
-                                journeyDetails();
-                               
-                              }
-                          
-                                // MaterialPageRoute(
-                                //     builder: (context) =>  LocationMap(
-                                //       sourceLocation: fromController.text.trim(),
-                                //       destionationLocation: toController.text.trim(),
-                                //     ),
-                            },
-                            child: Text(
-                              'Ok',
-                              style: GoogleFonts.inder(color: Colors.white),
+                              });
+                              // journeyDetails();
+                            }
+
+                            // MaterialPageRoute(
+                            //     builder: (context) =>  LocationMap(
+                            //       sourceLocation: fromController.text.trim(),
+                            //       destionationLocation: toController.text.trim(),
+                            //     ),
+                          },
+                          child: Text(
+                            'Ok',
+                            style: GoogleFonts.inder(color: Colors.white),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                            ),
-                          );
-                        }
-                      ),
+                          ),
+                        );
+                      }),
                     ],
                   ),
                 ),

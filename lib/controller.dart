@@ -8,7 +8,7 @@
 //     final docRef=db.collection("contacts").doc();
 //     dynamic id=docRef.id;
 //     docRef.set(userModel.data(id));
-    
+
 //   }
 
 //   List<UserModel> listOfData=[];
@@ -23,8 +23,9 @@
 //   }
 // }
 
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/model/reg_model.dart';
 import 'package:flutter_application_1/user_model.dart';
 
 class Controllerr {
@@ -41,4 +42,27 @@ class Controllerr {
       return snapshot.docs.map((doc) => UserModel.fromDocument(doc)).toList();
     });
   }
+
+// Map<String,dynamic>registereinfomap={
+//             "name":usernamecontroller.text,
+//             "email":emailcontroller.text,
+//             "age":agecontroller.text,
+//             "phonenumber":phonenumbercontroller.text,
+//             "password":passwordcontroller.text,
+//             "image":'',
+//             "id":uid,
+//           };
+List<RegistartinModel>registrationList=[];
+Future<List<RegistartinModel?>>  getAllUserforDropDown() async {
+    final snapshot =await db
+        .collection("registration")
+        .where("id", isNotEqualTo: FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+ return registrationList=snapshot.docs.map((e) => RegistartinModel.fromJson(e.data())).toList();
+  }
+
+ 
 }
+
+

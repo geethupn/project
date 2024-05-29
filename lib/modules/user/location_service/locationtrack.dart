@@ -14,8 +14,7 @@ class PageGoogleMap extends StatefulWidget {
 }
 
 class _PageGoogleMapState extends State<PageGoogleMap> {
-  var toController = TextEditingController();
-  var fromController = TextEditingController();
+
 
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
@@ -24,7 +23,6 @@ class _PageGoogleMapState extends State<PageGoogleMap> {
   Widget build(BuildContext context) {
     Provider.of<CurrentLocationProvider>(context, listen: false)
         .getCurrentLocation(_controller);
-    // Provider.of<CurrentLocationProvider>(context, listen: false)
 
     return Scaffold(
         body: SafeArea(
