@@ -45,6 +45,8 @@ class CurrentLocationProvider with ChangeNotifier {
       log("waiting");
       currentLocationData = LatLng(location.latitude!, location.longitude!);
       log("got");
+                 Controller().updateCurrentLocation(currentLocationData!.latitude,currentLocationData!.longitude);
+
       notifyListeners();
     }).catchError((errrror) {
       log(errrror.toString());
@@ -57,7 +59,6 @@ class CurrentLocationProvider with ChangeNotifier {
 
       googleMapController.animateCamera(CameraUpdate.newCameraPosition(
           CameraPosition(zoom: 13.4, target: currentLocationData!)));
-          Controller().updateCurrentLocation(currentLocationData!.latitude,currentLocationData!.longitude);
       notifyListeners();
     });
   }

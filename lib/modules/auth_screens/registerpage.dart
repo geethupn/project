@@ -50,21 +50,19 @@ class _RegistrationFormState extends State<RegisterPage> {
           .set(registereinfomap);
           
          }
-        registration()async {
+     Future   registration()async {
   try {
-  final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+ await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: email,
     password: password,
-  );
-   ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Registration successful')));
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => LoginPage(),
-          ));
+  ).then((value)async{
+
+
+
+
+     
           //String registered_user_id=randomString(10);
-          String uid=_auth.currentUser!.uid;
+          String uid=value.user!.uid;
           Map<String,dynamic>registereinfomap={
             "name":usernamecontroller.text,
             "email":emailcontroller.text,
@@ -74,8 +72,14 @@ class _RegistrationFormState extends State<RegisterPage> {
             "image":'',
             "id":uid,
           };
-          await addfirebase(registereinfomap, uid);
-          const SnackBar(content: Text("details added to firebase succesfully"));
+        await   addfirebase(registereinfomap, uid);
+          ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Registration successful')));
+
+ 
+
+  });
+   
 } on FirebaseAuthException catch (e) {
   if (e.code == 'weak-password') {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -288,7 +292,13 @@ class _RegistrationFormState extends State<RegisterPage> {
                                   email=emailcontroller.text;
                                   password=passwordcontroller.text;
                                 });
-                                registration();
+                                registration().then((value) {
+                                  Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginPage(),
+          ));
+                                });
                               }
                              // obj1.CreateAccount(emailAddress: email.text, password: password.text,context: context);
                             },

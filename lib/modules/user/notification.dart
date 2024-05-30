@@ -51,11 +51,7 @@ class JourneyNotification extends StatelessWidget {
                         )
                       : ListView.separated(
                           itemBuilder: (context, index) {
-                            return Container(
-                              decoration:
-                                  const BoxDecoration(color: Colors.black),
-                              // height: 100,
-                              child: FutureBuilder(
+                            return FutureBuilder(
                                   future: controller
                                       .getSelecteduserData(data[index].uid),
                                   builder: (context, snaps) {
@@ -66,85 +62,96 @@ class JourneyNotification extends StatelessWidget {
 
                                     final userData =
                                         controller.selectedUserData;
-                                    return Column(
-                                      children: [
-                                        //  Text(
-                                        //             ddd[index][0]["currentLon"].toString(),
-                                        //                 style: GoogleFonts.inder(
-                                        //                     color: const Color
-                                        //                         .fromARGB(255, 255,
-                                        //                         255, 255)),
-                                        //               ),
-                                         
-                                        Text(
-                                          userData!.name,
-                                          style: GoogleFonts.inder(
-                                              color: const Color.fromARGB(
-                                                  255, 255, 255, 255)),
-                                        ),
-                                        FutureBuilder(
-                                            future: controller.getFromAndTo(
-                                                data[index].fromLat,
-                                                data[index].fromLon,
-                                                data[index].toLat,
-                                                data[index].toLon),
-                                            builder: (context, snapshot1) {
-                                              if (snapshot1.connectionState ==
-                                                  ConnectionState.waiting) {
-                                                return SizedBox();
-                                              }
-                                              final from =
-                                                  controller.fromLocality;
-                                              final to = controller.toLocality
-                                                  .toString();
-
-                                              return Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                   "Journey start from : ${ from!}",
-                                                    style: GoogleFonts.inder(
-                                                        color: const Color
-                                                            .fromARGB(255, 255,
-                                                            255, 255)),
+                                return Container(
+                                  decoration:
+                                       BoxDecoration(color:data[index].isJouneryEnd==true?Color.fromARGB(255, 172, 171, 171): Colors.black),
+                                  // height: 100,
+                                  child: Column(
+                                          children: [
+                                            //  Text(
+                                            //             ddd[index][0]["currentLon"].toString(),
+                                            //                 style: GoogleFonts.inder(
+                                            //                     color: const Color
+                                            //                         .fromARGB(255, 255,
+                                            //                         255, 255)),
+                                            //               ),
+                                             
+                                            Text(
+                                              userData!.name,
+                                              style: GoogleFonts.inder(
+                                                    color: const Color.fromARGB(
+                                                        255, 255, 255, 255)),
+                                              ),
+                                              FutureBuilder(
+                                                  future: controller.getFromAndTo(
+                                                      data[index].fromLat,
+                                                      data[index].fromLon,
+                                                      data[index].toLat,
+                                                      data[index].toLon),
+                                                  builder: (context, snapshot1) {
+                                                    if (snapshot1.connectionState ==
+                                                        ConnectionState.waiting) {
+                                                      return SizedBox();
+                                                    }
+                                                    final from =
+                                                        controller.fromLocality;
+                                                    final to = controller.toLocality
+                                                        .toString();
+                                
+                                                    return Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: [
+                                                        Text(
+                                                        "Journey start from : ${ from!}",
+                                                          style: GoogleFonts.inder(
+                                                              color: const Color
+                                                                  .fromARGB(255, 255,
+                                                                  255, 255)),
+                                                        ),
+                                                        Text(
+                                                          "to : $to",
+                                                          style: GoogleFonts.inder(
+                                                              color: const Color
+                                                                  .fromARGB(255, 255,
+                                                                  255, 255)),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  }),
+                                                  FutureBuilder(
+                                                    future: controller.getCurrentLocationAddress(data[index].currentLat,data[index].currentLon),
+                                                    builder: (context,snaps2) {
+                                                      if(snaps2.connectionState==ConnectionState.waiting){
+                                                        return SizedBox();
+                                                      }
+                                                      final currentLocation=controller.currentLocation;
+                                                      return  data[index].isJouneryEnd==true?Text(
+                                                            "Reached in : $currentLocation",
+                                                              style: GoogleFonts.inder(
+                                                                  color: const Color
+                                                                      .fromARGB(255, 255,
+                                                                      255, 255)),
+                                                            ): Text(
+                                                            "Current Location : $currentLocation",
+                                                              style: GoogleFonts.inder(
+                                                                  color: const Color
+                                                                      .fromARGB(255, 255,
+                                                                      255, 255)),
+                                                            );
+                                                    }
                                                   ),
-                                                  Text(
-                                                    "to : $to",
-                                                    style: GoogleFonts.inder(
-                                                        color: const Color
-                                                            .fromARGB(255, 255,
-                                                            255, 255)),
-                                                  ),
-                                                ],
-                                              );
-                                            }),
-                                             FutureBuilder(
-                                              future: controller.getCurrentLocationAddress(data[index].currentLat,data[index].currentLon),
-                                               builder: (context,snaps2) {
-                                                if(snaps2.connectionState==ConnectionState.waiting){
-                                                  return SizedBox();
-                                                }
-                                                final currentLocation=controller.currentLocation;
-                                                 return Text(
-                                                       "Current Location : $currentLocation",
-                                                        style: GoogleFonts.inder(
-                                                            color: const Color
-                                                                .fromARGB(255, 255,
-                                                                255, 255)),
-                                                      );
-                                               }
-                                             ),
-                                             Text(
-                                                       "Current Position : ${data[index].currentLat.toString()}  :  ${data[index].currentLon.toString()}",
-                                                        style: GoogleFonts.inder(
-                                                          fontSize:8,
-                                                            color: const Color
-                                                                .fromARGB(255, 255,
-                                                                255, 255)),
-                                                      ),
-                                      ],
-                                    );
-                                  }),
+                                                  // Text(
+                                                  //           "Current Position : ${data[index].currentLat.toString()}  :  ${data[index].currentLon.toString()}",
+                                                  //             style: GoogleFonts.inder(
+                                                  //               fontSize:8,
+                                                  //                 color: const Color
+                                                  //                   .fromARGB(255, 255,
+                                                  //                   255, 255)),
+                                                  //         ),
+                                          ],
+                                        ));
+                              }
+                            
                             );
                           },
                           separatorBuilder: (context, index) => const SizedBox(

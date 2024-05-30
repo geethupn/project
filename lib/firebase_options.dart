@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -44,38 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA096VpB6NloeffoUxKyU4UAt3sfAOR5co',
-    appId: '1:701581783151:web:acc850767e8091aac39d9a',
-    messagingSenderId: '701581783151',
-    projectId: 'safeshield-ed69c',
-    authDomain: 'safeshield-ed69c.firebaseapp.com',
-    storageBucket: 'safeshield-ed69c.appspot.com',
-    measurementId: 'G-WW9HVYY1J2',
+    apiKey: 'AIzaSyCXEnagYmgZHbVk46GyEpSD7gzI2dHLruk',
+    appId: '1:563044592197:web:493c4d5438762b327a512c',
+    messagingSenderId: '563044592197',
+    projectId: 'safeshield-9d1ed',
+    authDomain: 'safeshield-9d1ed.firebaseapp.com',
+    storageBucket: 'safeshield-9d1ed.appspot.com',
+    measurementId: 'G-YVF3JRH7F9',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAmJYCrpwJHZFk3PKzNbI7KSrQ0N0mLHt4',
-    appId: '1:701581783151:android:51f89ce9f0ad0457c39d9a',
-    messagingSenderId: '701581783151',
-    projectId: 'safeshield-ed69c',
-    storageBucket: 'safeshield-ed69c.appspot.com',
+    apiKey: 'AIzaSyDyjx9XQszHECXrZfIHtvWAXF8KLS-2TIU',
+    appId: '1:563044592197:android:5ef1cac10716fe3d7a512c',
+    messagingSenderId: '563044592197',
+    projectId: 'safeshield-9d1ed',
+    storageBucket: 'safeshield-9d1ed.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCDjY3SU6wxaGpsbdg7qG-frN9DJzMN8zU',
-    appId: '1:701581783151:ios:f80e24af4f3a8050c39d9a',
-    messagingSenderId: '701581783151',
-    projectId: 'safeshield-ed69c',
-    storageBucket: 'safeshield-ed69c.appspot.com',
+    apiKey: 'AIzaSyCpRpe1uFPje004GjvMZIHWurDQtY1-xL4',
+    appId: '1:563044592197:ios:eb0b7a5644d6bc627a512c',
+    messagingSenderId: '563044592197',
+    projectId: 'safeshield-9d1ed',
+    storageBucket: 'safeshield-9d1ed.appspot.com',
     iosBundleId: 'com.example.flutterApplication1',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCDjY3SU6wxaGpsbdg7qG-frN9DJzMN8zU',
-    appId: '1:701581783151:ios:22738ce9a893b6adc39d9a',
-    messagingSenderId: '701581783151',
-    projectId: 'safeshield-ed69c',
-    storageBucket: 'safeshield-ed69c.appspot.com',
-    iosBundleId: 'com.example.flutterApplication1.RunnerTests',
+    apiKey: 'AIzaSyCpRpe1uFPje004GjvMZIHWurDQtY1-xL4',
+    appId: '1:563044592197:ios:eb0b7a5644d6bc627a512c',
+    messagingSenderId: '563044592197',
+    projectId: 'safeshield-9d1ed',
+    storageBucket: 'safeshield-9d1ed.appspot.com',
+    iosBundleId: 'com.example.flutterApplication1',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCXEnagYmgZHbVk46GyEpSD7gzI2dHLruk',
+    appId: '1:563044592197:web:b45beea16fd618a57a512c',
+    messagingSenderId: '563044592197',
+    projectId: 'safeshield-9d1ed',
+    authDomain: 'safeshield-9d1ed.firebaseapp.com',
+    storageBucket: 'safeshield-9d1ed.appspot.com',
+    measurementId: 'G-C92CX1NHHK',
+  );
+
 }

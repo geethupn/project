@@ -255,6 +255,7 @@ class _JourneyPageState extends State<JourneyPage> {
 //                               
                                 buttonController.storeCurrentJourneyInfo(
                                     JourneyModel(
+                                      isJouneryEnd: false,
                                         sharingUserId: sharingUid.toString(),
                                         currentLat: 0.0,
                                         currentLon: 0.0,

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "701581783151",
-    "project_id": "safeshield-ed69c",
-    "storage_bucket": "safeshield-ed69c.appspot.com"
+    "project_number": "563044592197",
+    "project_id": "safeshield-9d1ed",
+    "storage_bucket": "safeshield-9d1ed.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:701581783151:android:51f89ce9f0ad0457c39d9a",
+        "mobilesdk_app_id": "1:563044592197:android:5ef1cac10716fe3d7a512c",
         "android_client_info": {
           "package_name": "com.example.flutter_application_1"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAmJYCrpwJHZFk3PKzNbI7KSrQ0N0mLHt4"
+          "current_key": "AIzaSyDyjx9XQszHECXrZfIHtvWAXF8KLS-2TIU"
         }
       ],
       "services": {
